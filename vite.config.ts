@@ -9,4 +9,13 @@ export default defineConfig({
       "@": path.resolve(__dirname, "./src"),
     },
   },
+  server: {
+    proxy: {
+      "/api-proxy": {
+        target: "https://api.kokinpay.com",
+        changeOrigin: true,
+        rewrite: (path) => path.replace(/^\/api-proxy/, ""),
+      },
+    },
+  },
 })

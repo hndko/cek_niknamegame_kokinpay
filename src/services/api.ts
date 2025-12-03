@@ -1,6 +1,8 @@
-import { CheckNicknameRequest, CheckNicknameResponse } from "@/types/api";
+import type { CheckNicknameRequest, CheckNicknameResponse } from "@/types/api";
 
-const API_URL = "https://api.kokinpay.com/check-nickname";
+const API_URL = import.meta.env.DEV
+    ? "/api-proxy/check-nickname"
+    : "https://api.kokinpay.com/check-nickname";
 
 export async function checkNickname(params: CheckNicknameRequest): Promise<CheckNicknameResponse> {
     try {
