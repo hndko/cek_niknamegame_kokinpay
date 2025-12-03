@@ -2,7 +2,7 @@
 
 A premium, modern web application designed to validate and retrieve player nicknames for various popular online games. Built with **React**, **TypeScript**, and **Tailwind CSS**, featuring a sleek glassmorphism UI and dynamic server handling.
 
-![Project Preview](https://via.placeholder.com/800x400?text=Game+Nickname+Checker+Preview)
+<img width="1919" height="948" alt="Image" src="https://github.com/user-attachments/assets/bf11c0e8-fe5d-4491-9e33-31bc71b583b1" />
 
 ## ✨ Features
 
