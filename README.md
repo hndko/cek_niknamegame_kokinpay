@@ -1,73 +1,104 @@
-# React + TypeScript + Vite
+# 🎮 Game Nickname Checker
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A premium, modern web application designed to validate and retrieve player nicknames for various popular online games. Built with **React**, **TypeScript**, and **Tailwind CSS**, featuring a sleek glassmorphism UI and dynamic server handling.
 
-Currently, two official plugins are available:
+![Project Preview](https://via.placeholder.com/800x400?text=Game+Nickname+Checker+Preview)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## ✨ Features
 
-## React Compiler
+-   **Multi-Game Support**: Validate IDs for over 30+ popular games including Mobile Legends, Free Fire, Genshin Impact, Honkai: Star Rail, and more.
+-   **Smart Input Handling**: Automatically adjusts input fields based on game requirements (e.g., Zone ID for MLBB, Server Dropdown for Genshin, or ID only for Free Fire).
+-   **Premium UI/UX**: Designed with a modern dark theme, glassmorphism effects, and smooth animations using Tailwind CSS and shadcn/ui.
+-   **Real-time Validation**: Instant feedback on valid or invalid game IDs via the KokinPay API.
+-   **Responsive Design**: Fully optimized for desktop, tablet, and mobile devices.
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## 🛠️ Tech Stack
 
-## Expanding the ESLint configuration
+-   **Framework**: [React](https://react.dev/) + [Vite](https://vitejs.dev/)
+-   **Language**: [TypeScript](https://www.typescriptlang.org/)
+-   **Styling**: [Tailwind CSS](https://tailwindcss.com/)
+-   **UI Components**: [shadcn/ui](https://ui.shadcn.com/)
+-   **Icons**: [Lucide React](https://lucide.dev/)
+-   **Toast Notifications**: [Sonner](https://sonner.emilkowal.ski/)
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+## 🚀 Getting Started
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+Follow these steps to set up the project locally.
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+### Prerequisites
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+-   Node.js (v18 or higher)
+-   npm or yarn
+
+### Installation
+
+1.  **Clone the repository**
+    ```bash
+    git clone https://github.com/yourusername/game-nickname-checker.git
+    cd game-nickname-checker
+    ```
+
+2.  **Install dependencies**
+    ```bash
+    npm install
+    ```
+
+3.  **Configure Environment Variables**
+    -   Copy the example environment file:
+        ```bash
+        cp .env.example .env
+        ```
+    -   Open `.env` and add your KokinPay API Key:
+        ```env
+        VITE_API_KEY=your_actual_api_key_here
+        ```
+
+4.  **Run the development server**
+    ```bash
+    npm run dev
+    ```
+
+5.  Open your browser and navigate to `http://localhost:5173`.
+
+## 📁 Project Structure
+
+```
+src/
+├── components/
+│   ├── features/       # Main feature components (e.g., NicknameChecker)
+│   └── ui/             # Reusable UI components (shadcn/ui)
+├── data/
+│   └── games.ts        # Game configuration and server lists
+├── lib/
+│   └── utils.ts        # Utility functions
+├── services/
+│   └── api.ts          # API integration logic
+├── types/
+│   └── api.ts          # TypeScript definitions
+└── App.tsx             # Main application entry
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+## 🔧 Configuration
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+The list of supported games and their specific requirements (server types, lists, etc.) is managed in `src/data/games.ts`. You can easily add or modify games by editing this file.
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+```typescript
+// Example Game Configuration
+{
+  name: "Mobile Legends",
+  code: "mobile-legends",
+  requiresServer: true,
+  serverType: "text",
+  placeholder: "Zone ID"
+}
 ```
+
+## 📄 License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+---
+
+<p align="center">
+  Built with ❤️ by Mari Partner
+</p>
